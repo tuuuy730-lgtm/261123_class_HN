@@ -1,0 +1,460 @@
+/* ===== 기본 설정 ===== */
+:root {
+  --bg: #f7f3ee;
+  --paper: #fffdfa;
+  --text: #4a4340;
+  --muted: #9a8f88;
+  --point: #c98b7b;
+  --point-light: #f2e1da;
+  --line: #e8dfd7;
+  --serif: 'Gowun Batang', serif;
+  --sans: 'Noto Sans KR', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+.invitation {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--paper);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* ===== 공통 섹션 ===== */
+.section {
+  padding: 80px 28px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+.section-label {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--point);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.sub-text {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: -12px;
+  margin-bottom: 28px;
+}
+
+/* ===== 커버 ===== */
+.cover {
+  padding: 60px 28px 70px;
+  text-align: center;
+}
+
+.cover-label {
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: var(--point);
+  margin-bottom: 28px;
+}
+
+.cover-photo {
+  aspect-ratio: 3 / 4;
+  border-radius: 200px 200px 12px 12px;
+  background:
+    radial-gradient(circle at 30% 25%, #fbe9e1 0%, transparent 55%),
+    radial-gradient(circle at 75% 70%, #e7d4c6 0%, transparent 60%),
+    linear-gradient(160deg, #f3e3da, #d9c1b3);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 32px;
+  margin-bottom: 36px;
+}
+
+.cover-photo-text {
+  font-family: var(--serif);
+  font-size: 26px;
+  color: #fff;
+  font-style: italic;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.cover-names {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.cover-names .amp {
+  color: var(--point);
+  font-size: 20px;
+}
+
+.cover-date,
+.cover-place {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* ===== 인사말 ===== */
+.greeting-text {
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 2.1;
+  margin-bottom: 40px;
+}
+
+.parents p {
+  font-size: 15px;
+  margin: 6px 0;
+}
+
+.parents strong {
+  font-weight: 500;
+}
+
+.parents .name {
+  font-family: var(--serif);
+  font-size: 17px;
+  margin-left: 4px;
+}
+
+/* ===== 달력 ===== */
+.calendar {
+  max-width: 320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px 0;
+  font-size: 14px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+}
+
+.calendar .day-name {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.calendar .cell {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar .sun {
+  color: #d17a6b;
+}
+
+.calendar .sat {
+  color: #7a8fb3;
+}
+
+.calendar .wedding-day {
+  width: 34px;
+  height: 34px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: var(--point);
+  color: #fff;
+  font-weight: 500;
+}
+
+.dday {
+  margin-top: 24px;
+  font-size: 15px;
+}
+
+.dday strong {
+  color: var(--point);
+  font-weight: 500;
+}
+
+/* ===== 갤러리 ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.gallery-item:hover {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+/* 실제 사진이 생기면 background-image: url('../images/xxx.jpg') 로 교체하세요 */
+.g1 { background: linear-gradient(135deg, #f6d5c9, #e8b4a4); }
+.g2 { background: linear-gradient(135deg, #f9e7c8, #e9c9a0); }
+.g3 { background: linear-gradient(135deg, #cfe3e8, #9fc3cf); }
+.g4 { background: linear-gradient(135deg, #f0cfa8, #cf9a6f); }
+.g5 { background: linear-gradient(135deg, #e9eef2, #c4ced8); }
+.g6 { background: linear-gradient(135deg, #f3d3dc, #d9a3b4); }
+
+.hint {
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ===== 오시는 길 ===== */
+.place-name {
+  font-family: var(--serif);
+  font-size: 17px;
+}
+
+.place-address {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.map-placeholder {
+  margin: 28px 0;
+  height: 220px;
+  border-radius: 10px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, #e9e2da 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 39px, #e9e2da 39px 40px),
+    #f4efe9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.transport {
+  list-style: none;
+  text-align: left;
+  font-size: 14px;
+}
+
+.transport li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.transport strong {
+  display: inline-block;
+  width: 64px;
+  font-weight: 500;
+  color: var(--point);
+}
+
+/* ===== 계좌 아코디언 ===== */
+.accordion {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.accordion-head {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 15px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  background: #faf6f2;
+}
+
+.accordion-head::after {
+  content: '⌄';
+  transition: transform 0.3s;
+}
+
+.accordion-head[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.account-row .bank,
+.account-row .holder {
+  display: block;
+}
+
+.account-row .holder {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ===== 버튼 ===== */
+.btn {
+  border-radius: 999px;
+  font-size: 13px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline {
+  padding: 8px 20px;
+  border: 1px solid var(--point);
+  color: var(--point);
+}
+
+.btn-outline:hover {
+  background: var(--point);
+  color: #fff;
+}
+
+.btn-small {
+  padding: 6px 14px;
+  background: var(--point-light);
+  color: var(--point);
+  flex-shrink: 0;
+}
+
+.btn-fill {
+  padding: 14px 36px;
+  background: var(--point);
+  color: #fff;
+  font-size: 14px;
+}
+
+.btn-fill:hover {
+  background: #b97969;
+}
+
+/* ===== 푸터 ===== */
+.footer {
+  padding: 60px 28px 80px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+.thanks {
+  margin-top: 28px;
+  font-family: var(--serif);
+  color: var(--muted);
+}
+
+/* ===== 모달 ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 25, 22, 0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 100;
+}
+
+.modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-image {
+  width: min(90vw, 420px);
+  aspect-ratio: 3 / 4;
+  border-radius: 10px;
+}
+
+.modal-caption {
+  margin-top: 16px;
+  color: #fff;
+  font-family: var(--serif);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 36px;
+  color: #fff;
+  line-height: 1;
+}
+
+/* ===== 토스트 ===== */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 40px;
+  transform: translate(-50%, 20px);
+  background: rgba(60, 52, 48, 0.92);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 200;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ===== 스크롤 페이드인 ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
