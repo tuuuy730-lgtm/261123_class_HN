@@ -1,460 +1,514 @@
-/* ===== 기본 설정 ===== */
+/* ==========================================================
+   MELLOW BEAN — 스타일
+   가이드: .claude/skills/mellow-bean-site/SKILL.md
+   ========================================================== */
+
+/* ---------- 1. 색상 · 크기 변수 ---------- */
 :root {
-  --bg: #f7f3ee;
-  --paper: #fffdfa;
-  --text: #4a4340;
-  --muted: #9a8f88;
-  --point: #c98b7b;
-  --point-light: #f2e1da;
-  --line: #e8dfd7;
-  --serif: 'Gowun Batang', serif;
-  --sans: 'Noto Sans KR', sans-serif;
+  --color-bg: #EFE8DC;      /* 베이지: 기본 배경 */
+  --color-text: #2F3E33;    /* 딥그린: 글자 */
+  --color-accent: #B5643C;  /* 테라코타: 가격·강조 */
+  --color-sub: #A8B5A0;     /* 세이지: 구분선·보조 */
+  --color-white: #FFFFFF;   /* 사진 위 글자 */
+
+  --font: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+
+  --max-width: 1200px;
+  --gutter: 20px;           /* 좌우 여백 (모바일) */
+  --section-space: 72px;    /* 섹션 위아래 여백 (모바일) */
+  --header-height: 64px;
 }
 
-* {
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 40px;
+    --section-space: 120px;
+    --header-height: 80px;
+  }
+}
+
+/* ---------- 2. 기본 설정 ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-weight: 300;
-  line-height: 1.8;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  word-break: keep-all;
   -webkit-font-smoothing: antialiased;
+  /* 아이폰을 가로로 돌렸을 때 글자가 제멋대로 커지는 것 방지 */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
   color: inherit;
+  text-decoration: none;
 }
 
-.invitation {
-  max-width: 480px;
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--max-width) + var(--gutter) * 2);
   margin: 0 auto;
-  background: var(--paper);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
+  padding: 0 var(--gutter);
 }
 
-/* ===== 공통 섹션 ===== */
+/* ---------- 3. 공통 요소 ---------- */
 .section {
-  padding: 80px 28px;
-  text-align: center;
-  border-top: 1px solid var(--line);
+  padding: var(--section-space) 0;
 }
 
-.section-label {
-  font-size: 12px;
-  letter-spacing: 4px;
-  color: var(--point);
-  margin-bottom: 8px;
-}
-
-.section-title {
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 400;
-  margin-bottom: 24px;
-}
-
-.sub-text {
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: -12px;
-  margin-bottom: 28px;
-}
-
-/* ===== 커버 ===== */
-.cover {
-  padding: 60px 28px 70px;
-  text-align: center;
-}
-
-.cover-label {
-  font-size: 12px;
-  letter-spacing: 5px;
-  color: var(--point);
-  margin-bottom: 28px;
-}
-
-.cover-photo {
-  aspect-ratio: 3 / 4;
-  border-radius: 200px 200px 12px 12px;
-  background:
-    radial-gradient(circle at 30% 25%, #fbe9e1 0%, transparent 55%),
-    radial-gradient(circle at 75% 70%, #e7d4c6 0%, transparent 60%),
-    linear-gradient(160deg, #f3e3da, #d9c1b3);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 32px;
-  margin-bottom: 36px;
-}
-
-.cover-photo-text {
-  font-family: var(--serif);
-  font-size: 26px;
-  color: #fff;
-  font-style: italic;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-
-.cover-names {
-  font-family: var(--serif);
-  font-size: 26px;
-  font-weight: 400;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-
-.cover-names .amp {
-  color: var(--point);
-  font-size: 20px;
-}
-
-.cover-date,
-.cover-place {
-  font-size: 15px;
-  color: var(--muted);
-}
-
-/* ===== 인사말 ===== */
-.greeting-text {
-  font-family: var(--serif);
-  font-size: 15px;
-  line-height: 2.1;
+.section-head {
   margin-bottom: 40px;
 }
 
-.parents p {
-  font-size: 15px;
-  margin: 6px 0;
-}
-
-.parents strong {
-  font-weight: 500;
-}
-
-.parents .name {
-  font-family: var(--serif);
-  font-size: 17px;
-  margin-left: 4px;
-}
-
-/* ===== 달력 ===== */
-.calendar {
-  max-width: 320px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 6px 0;
-  font-size: 14px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 18px 0;
-}
-
-.calendar .day-name {
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-
-.calendar .cell {
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.calendar .sun {
-  color: #d17a6b;
-}
-
-.calendar .sat {
-  color: #7a8fb3;
-}
-
-.calendar .wedding-day {
-  width: 34px;
-  height: 34px;
-  margin: 0 auto;
-  border-radius: 50%;
-  background: var(--point);
-  color: #fff;
-  font-weight: 500;
-}
-
-.dday {
-  margin-top: 24px;
-  font-size: 15px;
-}
-
-.dday strong {
-  color: var(--point);
-  font-weight: 500;
-}
-
-/* ===== 갤러리 ===== */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-}
-
-.gallery-item {
-  aspect-ratio: 1;
-  border-radius: 6px;
-  transition: transform 0.25s, opacity 0.25s;
-}
-
-.gallery-item:hover {
-  transform: scale(0.97);
-  opacity: 0.9;
-}
-
-/* 실제 사진이 생기면 background-image: url('../images/xxx.jpg') 로 교체하세요 */
-.g1 { background: linear-gradient(135deg, #f6d5c9, #e8b4a4); }
-.g2 { background: linear-gradient(135deg, #f9e7c8, #e9c9a0); }
-.g3 { background: linear-gradient(135deg, #cfe3e8, #9fc3cf); }
-.g4 { background: linear-gradient(135deg, #f0cfa8, #cf9a6f); }
-.g5 { background: linear-gradient(135deg, #e9eef2, #c4ced8); }
-.g6 { background: linear-gradient(135deg, #f3d3dc, #d9a3b4); }
-
-.hint {
-  margin-top: 14px;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-/* ===== 오시는 길 ===== */
-.place-name {
-  font-family: var(--serif);
-  font-size: 17px;
-}
-
-.place-address {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 14px;
-}
-
-.map-placeholder {
-  margin: 28px 0;
-  height: 220px;
-  border-radius: 10px;
-  background:
-    repeating-linear-gradient(0deg, transparent 0 39px, #e9e2da 39px 40px),
-    repeating-linear-gradient(90deg, transparent 0 39px, #e9e2da 39px 40px),
-    #f4efe9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.transport {
-  list-style: none;
-  text-align: left;
-  font-size: 14px;
-}
-
-.transport li {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.transport strong {
-  display: inline-block;
-  width: 64px;
-  font-weight: 500;
-  color: var(--point);
-}
-
-/* ===== 계좌 아코디언 ===== */
-.accordion {
-  border: 1px solid var(--line);
-  border-radius: 10px;
+.section-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
   margin-bottom: 12px;
-  overflow: hidden;
-  text-align: left;
 }
 
-.accordion-head {
-  width: 100%;
-  padding: 16px 20px;
-  font-size: 15px;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  background: #faf6f2;
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
-.accordion-head::after {
-  content: '⌄';
-  transition: transform 0.3s;
-}
-
-.accordion-head[aria-expanded="true"]::after {
-  transform: rotate(180deg);
-}
-
-.accordion-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-}
-
-.account-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 20px;
-  border-top: 1px solid var(--line);
-  font-size: 14px;
-}
-
-.account-row .bank,
-.account-row .holder {
-  display: block;
-}
-
-.account-row .holder {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-/* ===== 버튼 ===== */
-.btn {
-  border-radius: 999px;
-  font-size: 13px;
-  transition: background 0.2s, color 0.2s;
-}
-
-.btn-outline {
-  padding: 8px 20px;
-  border: 1px solid var(--point);
-  color: var(--point);
-}
-
-.btn-outline:hover {
-  background: var(--point);
-  color: #fff;
-}
-
-.btn-small {
-  padding: 6px 14px;
-  background: var(--point-light);
-  color: var(--point);
-  flex-shrink: 0;
-}
-
-.btn-fill {
+.button {
+  display: inline-block;
   padding: 14px 36px;
-  background: var(--point);
-  color: #fff;
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
   font-size: 14px;
+  letter-spacing: 0.1em;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.btn-fill:hover {
-  background: #b97969;
+.button:hover,
+.button:focus-visible {
+  background: var(--color-white);
+  color: var(--color-text);
 }
 
-/* ===== 푸터 ===== */
-.footer {
-  padding: 60px 28px 80px;
-  text-align: center;
-  border-top: 1px solid var(--line);
-}
-
-.thanks {
-  margin-top: 28px;
-  font-family: var(--serif);
-  color: var(--muted);
-}
-
-/* ===== 모달 ===== */
-.modal {
+/* ---------- 4. 상단 메뉴바 ---------- */
+.site-header {
   position: fixed;
-  inset: 0;
-  background: rgba(30, 25, 22, 0.88);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: var(--header-height);
+  color: var(--color-white);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 스크롤해서 첫 화면을 지나면 (script.js가 붙여줌) */
+.site-header.is-scrolled {
+  background: var(--color-bg);
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-sub);
+}
+
+.header-inner {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  gap: 12px;
+}
+
+.nav a {
+  /* 손가락으로 누르기 쉽도록 위아래 터치 영역 확보 */
+  padding: 14px 0;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  opacity: 1;
+}
+
+/* ---------- 5. 첫 화면 ---------- */
+.hero {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 480px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-  z-index: 100;
+  text-align: center;
+  color: var(--color-white);
+  overflow: hidden;
 }
 
-.modal.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal-image {
-  width: min(90vw, 420px);
-  aspect-ratio: 3 / 4;
-  border-radius: 10px;
-}
-
-.modal-caption {
-  margin-top: 16px;
-  color: #fff;
-  font-family: var(--serif);
-}
-
-.modal-close {
+.hero-image {
   position: absolute;
-  top: 16px;
-  right: 20px;
-  font-size: 36px;
-  color: #fff;
-  line-height: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* ===== 토스트 ===== */
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: 40px;
-  transform: translate(-50%, 20px);
-  background: rgba(60, 52, 48, 0.92);
-  color: #fff;
-  padding: 10px 22px;
-  border-radius: 999px;
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.hero-content {
+  position: relative;
+  padding: 0 var(--gutter);
+}
+
+.hero-logo {
+  /* 가이드는 모바일 36px이지만 375px 폭에서 넘치므로 화면 폭에 맞춰 줄어들게 함 */
+  font-size: clamp(24px, 8vw, 36px);
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  white-space: nowrap;
+  line-height: 1.3;
+  /* 넓은 자간 때문에 오른쪽으로 쏠려 보이는 것 보정 */
+  margin-right: -0.3em;
+}
+
+.hero-copy {
+  margin: 16px 0 40px;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- 6. 메뉴 ---------- */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px 20px;
+}
+
+.menu-photo {
+  /* 모바일은 1열이라 정사각형으로 스크롤 길이를 줄임 (태블릿부터 4:5) */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.menu-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* 마우스가 있는 기기에서만 확대 (터치 화면에서 확대된 채 멈추는 것 방지) */
+@media (hover: hover) {
+  .menu-card:hover .menu-photo img {
+    transform: scale(1.04);
+  }
+}
+
+.menu-name {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.menu-desc {
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.menu-price {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+/* ---------- 7. 공간 ---------- */
+.space {
+  border-top: 1px solid var(--color-sub);
+}
+
+.space-figure {
+  overflow: hidden;
+}
+
+.space-figure img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.space-text {
+  max-width: 640px;
+  margin-top: 32px;
+}
+
+/* ---------- 8. 연락처 (푸터) ---------- */
+.footer {
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: var(--section-space) 0 32px;
+}
+
+.footer-inner {
+  display: grid;
+  gap: 48px;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+}
+
+.footer-copy {
+  margin-top: 8px;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+/* 연락처 정보: 한 줄에 "항목 이름 + 내용", 위에서 아래로 쌓기 */
+.footer-info {
+  display: grid;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.footer-info > div {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-info dt {
+  flex-shrink: 0;
+  width: 72px;
+  padding-top: 2px;
   font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-sub);
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+/* 보조 정보: 모바일·태블릿은 다음 줄에, PC는 같은 줄 괄호 안에 */
+.muted {
+  display: block;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+/* 지도: 모바일에서는 글자 아래 4:3 비율, 태블릿 이상에서는 왼쪽 글자 높이에 맞춤 */
+.footer-map {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.footer-map img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 잘려도 빨간 원(가로 58%, 세로 41% 지점)이 항상 보이도록 기준점 지정 */
+  object-position: 58% 41%;
+}
+
+.copyright {
+  margin-top: 72px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+
+/* ---------- 9. 스크롤 등장 효과 ---------- */
+/* JS가 켜져 있을 때만 숨김 → JS가 없어도 내용은 보임 */
+.js .reveal {
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s, transform 0.3s;
-  z-index: 200;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.toast.show {
+.js .reveal.is-visible {
   opacity: 1;
-  transform: translate(-50%, 0);
+  transform: none;
 }
 
-/* ===== 스크롤 페이드인 ===== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+/* ---------- 10. 태블릿 (768px 이상) ---------- */
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .logo {
+    font-size: 15px;
+    letter-spacing: 0.3em;
+  }
+
+  .nav {
+    gap: 32px;
+  }
+
+  .nav a {
+    font-size: 13px;
+  }
+
+  .section-head {
+    margin-bottom: 48px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .hero-logo {
+    font-size: 44px;
+  }
+
+  .hero-copy {
+    font-size: 16px;
+  }
+
+  .menu-photo {
+    aspect-ratio: 4 / 5;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 56px 32px;
+  }
+
+  .menu-grid .reveal:nth-child(2n) {
+    transition-delay: 0.1s;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  /* 지도는 높이를 스스로 정하지 않고, 왼쪽 글자 칸 높이를 그대로 따라감 */
+  .footer-map {
+    aspect-ratio: auto;
+  }
 }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* ---------- 11. PC (1024px 이상) ---------- */
+@media (min-width: 1024px) {
+  .section-head {
+    margin-bottom: 64px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .hero-logo {
+    font-size: 56px;
+  }
+
+  .hero-copy {
+    font-size: 18px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .menu-grid .reveal:nth-child(2n) {
+    transition-delay: 0s;
+  }
+
+  .menu-grid .reveal:nth-child(3n + 2) {
+    transition-delay: 0.1s;
+  }
+
+  .menu-grid .reveal:nth-child(3n) {
+    transition-delay: 0.2s;
+  }
+
+  .space-figure img {
+    aspect-ratio: 16 / 9;
+  }
+
+  .space-text {
+    margin-top: 48px;
+  }
+
+  /* PC는 폭이 넉넉하니 보조 정보를 같은 줄 괄호 안에 */
+  .muted {
+    display: inline;
+  }
+
+  .muted::before {
+    content: " (";
+  }
+
+  .muted::after {
+    content: ")";
+  }
+}
+
+/* ---------- 12. 움직임 줄이기 설정 존중 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
